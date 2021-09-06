@@ -170,14 +170,6 @@ class ToshibaPowerSensor(SensorEntity):
         return STATE_CLASS_TOTAL_INCREASING
 
     @property
-    def last_reset(self) -> datetime:
-        """Return the time when the sensor was last reset, if any."""
-        if self._ac_energy_consumption:
-            return self._ac_energy_consumption.since
-        else:
-            return datetime.now().date()
-
-    @property
     def state(self) -> float:
         """Return the value of the sensor."""
         if self._ac_energy_consumption:
